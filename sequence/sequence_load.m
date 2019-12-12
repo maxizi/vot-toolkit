@@ -62,9 +62,10 @@ if ~exist(list_file, 'file') && ~isempty(bundle_url)
             sequence = meta.sequences{i};
             print_text('Downloading sequence "%s" ...', sequence.name);
             sequence_directory = fullfile(directory, sequence.name);
-            %if exist(sequence_directory, 'dir')
-            %    continue;
-            %end;
+            if exist(sequence_directory, 'dir')
+                print_text('Skipped sequence "%s" as already there...', sequence.name);
+                continue;
+            end;
             mkpath(sequence_directory);
             data = struct('name', sequence.name, 'fps', sequence.fps, 'format', 'default');
             data.channels = struct();
