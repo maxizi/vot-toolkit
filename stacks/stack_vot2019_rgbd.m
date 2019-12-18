@@ -10,7 +10,7 @@ unsupervised.tags = {};
 unsupervised.parameters.repetitions = 1;
 unsupervised.parameters.burnin = 0;
 
-unsupervised.analysis = {'overlap'};
+unsupervised.analysis = {'overlap', 'precision_recall', 'speed'};
 
 experiments = {unsupervised};
 
